@@ -1,0 +1,60 @@
+buildscript {
+	ext {
+        kotlinVersion = '1.1.0-rc-91'
+		springBootVersion = '2.0.0.BUILD-SNAPSHOT'
+	}
+	repositories {
+		mavenCentral()
+        maven { url "http://dl.bintray.com/kotlin/kotlin-eap-1.1" }
+		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
+        maven { url 'https://jitpack.io' }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+		classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+	}
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-spring'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+jar {
+	baseName = 'jvlite'
+	version = '0.0.1-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+    maven { url "http://dl.bintray.com/kotlin/kotlin-eap-1.1" }
+	maven { url "https://repo.spring.io/snapshot" }
+	maven { url "https://repo.spring.io/milestone" }
+	maven { url 'https://jitpack.io' }
+}
+
+
+dependencies {
+	compile 'com.github.petuhovskiy:jvaluer-commons:v0.4.17'
+
+	compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.8.6"
+
+	compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+
+	compile('org.springframework.boot:spring-boot-starter-security')
+	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs
+	compile group: 'org.springframework.security', name: 'spring-security-taglibs', version: '4.2.1.RELEASE'
+
+
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
+	compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
+
+	compile('org.springframework.boot:spring-boot-starter-freemarker')
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
