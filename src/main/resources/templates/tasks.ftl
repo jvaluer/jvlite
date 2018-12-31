@@ -17,14 +17,8 @@
     <link rel="import" href="${pref}/elems/jvlite-tasks.html">
     <link rel="import" href="${pref}/elems/task-link.html">
 
-    <style>
-        html, body {
-            margin: 0;
-            font-family: 'Roboto', 'Noto', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            background: #f1f1f1;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/main.css">
+
 </head>
 <body>
 <jvlite-header></jvlite-header>
